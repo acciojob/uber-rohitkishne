@@ -16,6 +16,8 @@ public class TripBooking{
     @Enumerated(EnumType.STRING)
     private TripStatus status;
 
+    private int bill;
+
     @ManyToOne
     @JoinColumn
     private Driver driver;
@@ -27,12 +29,13 @@ public class TripBooking{
     public TripBooking() {
     }
 
-    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus status, Driver driver, Customer customer) {
+    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus status, int bill, Driver driver, Customer customer) {
         this.tripBookingId = tripBookingId;
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
         this.distanceInKm = distanceInKm;
         this.status = status;
+        this.bill = bill;
         this.driver = driver;
         this.customer = customer;
     }
@@ -91,5 +94,13 @@ public class TripBooking{
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public int getBill() {
+        return bill;
+    }
+
+    public void setBill(int bill) {
+        this.bill = bill;
     }
 }
