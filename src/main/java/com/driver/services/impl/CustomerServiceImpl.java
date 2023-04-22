@@ -63,7 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
 			int driverId = 0;
 			for(Driver driver : drivers)
 			{
-				if(driver.getCab().isAvailable()== true)
+				if(driver.getCab().getAvailable()== true)
 				{
 					driverId = driver.getDriverId();
 					driverAvail = true;
