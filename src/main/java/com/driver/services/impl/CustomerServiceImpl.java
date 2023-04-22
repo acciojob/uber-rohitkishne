@@ -102,6 +102,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 		TripBooking booking = tripBookingRepository2.findById(tripId).get();
 		booking.setStatus(TripStatus.CANCELED);
+		booking.setBill(0);
 		tripBookingRepository2.save(booking);
 
 
@@ -113,6 +114,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 		TripBooking booking = tripBookingRepository2.findById(tripId).get();
 		booking.setStatus(TripStatus.COMPLETED);
+		int bill = booking.getDriver().getCab().getPerKmRate() * booking.getDistanceInKm();
+		booking.setBill(bill);
 		tripBookingRepository2.save(booking);
 
 	}
